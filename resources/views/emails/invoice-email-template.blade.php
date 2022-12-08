@@ -143,7 +143,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                            <h1 style="font-size: 48px; font-weight: 400; margin: 2px;">@lang('common.email.title')  TEST IS HERE!!</h1>
+                            <h1 style="font-size: 48px; font-weight: 400; margin: 2px;">@lang('common.email.title') </h1>
                             <img src="{{ asset('https://www.ubox.com.hk/wp-content/uploads/2021/03/ubox-TM-logo.png')}}" width="125" height="50" style="display: block; border: 0px;" />
 
                             @if (isset($message))

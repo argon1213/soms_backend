@@ -36,7 +36,7 @@ class SomsOrderPayment extends Model
         static::saving(function($model)
         {
           if($model->payment_status_id == SomsPaymentStatus::PAID || $model->payment_status_id == SomsPaymentStatus::CANCELLED){
-            if($model->completed_at == null)
+            if($model->completed_at != null)
               $model->completed_at = Carbon::now();
           }
         });

@@ -57,7 +57,6 @@ return [
     'email.orderID'		=>'Order ID',
     'email.name'		=>'Name',
     'email.email'		=>'Email',
-    'email.contact'		=>'Contact',
     'email.address'		=>'Address',
     'email.pickupAddr'		=>'Pickup Address',
     'email.walkup'		=>'Do you live in Walk-up',

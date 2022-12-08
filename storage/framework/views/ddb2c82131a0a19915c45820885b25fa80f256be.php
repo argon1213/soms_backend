@@ -717,7 +717,7 @@
                         <!-- Emptyout / Checkin / Checkout -->
                         <div class="row">
                             <div class="col-md-4 p-1">
-                                <label id="emptyout_label" style="text-align:right;"><?php echo app('translator')->get('placeorder.step3.emptyout'); ?></label>
+                                <label id="emptyout_label"><?php echo app('translator')->get('placeorder.step3.emptyout'); ?></label>
                             </div>
                             <div class="col-md-4 p-1">
                                 <input class="form-control form-control-sm order_date" type="date"
@@ -1722,8 +1722,8 @@ if (Auth::guard('somsclient')->check()) {
     $(function () {
         // Create a Stripe client.
         console.log("hello");
-        //var stripe = Stripe('<?php echo e(env("STRIPE_KEY"), false); ?>');
-        var stripe = Stripe('pk_test_mGosxq40Vdq5hHd6UguX94gw');
+        var stripe = Stripe('<?php echo e(env("STRIPE_KEY"), false); ?>');
+        //var stripe = Stripe('pk_test_mGosxq40Vdq5hHd6UguX94gw');
         //var stripe = Stripe('<?php echo e(env("STRIPE_TEST_KEY"), false); ?>');
         // Create an instance of Elements.
         var elements = stripe.elements();

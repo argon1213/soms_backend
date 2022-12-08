@@ -11,7 +11,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 use Log;
 
-class ExtendedPaymentInvoice extends Mailable implements ShouldQueue
+class ExtendedPaymentInvoice extends Mailable 
 {
     use Queueable, SerializesModels;
     public $locale;
@@ -45,7 +45,8 @@ class ExtendedPaymentInvoice extends Mailable implements ShouldQueue
         Log::debug($this->payment->pay_qr_code);
         $qrCode = ($this->payment->pay_qr_code != null)? QrCode::format('png')->size(200)->generate($this->payment->pay_qr_code):"";
 
-        return $this->from(config('mail.from.address'))
+        return $this
+                ->from(config('mail.from.address'))
                 ->subject('Invoice - '.$this->order->code)
                 ->view('emails.extended-invoice-email-template')
                 ->with([

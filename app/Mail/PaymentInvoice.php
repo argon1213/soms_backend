@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use Log;
 
-class PaymentInvoice extends Mailable implements ShouldQueue
+class PaymentInvoice extends Mailable 
 {
     use Queueable, SerializesModels;
     public $locale;
