@@ -1,0 +1,15 @@
+.register-box{padding: 0 10px;}
+.form-head{color: #906741;padding-bottom: 10px;}
+.bottom_border{border: 1px solid #f3d4b7;
+    width: 50px;
+    height: 1px;
+    display: inline-table;}
+.error{font-size: 12px}
+.form-head:after{border-bottom: 1px solid #ccc;}
+.clink{    color: #9c804d;}
+@media (min-width: 576px){
+    .modal-sm {
+        max-width: 400px;
+    }
+}
+.otpNo, .passForm{display: none}
