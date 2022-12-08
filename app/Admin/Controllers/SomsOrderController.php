@@ -205,6 +205,7 @@ class SomsOrderController extends AdminController
                 $filter->like('client.contact', __('somsclient.contact'));
                 $filter->like('client.wechat', __('somsclient.wechat'));
                 $filter->like('remark_location', __('somsorder.remark_location'));
+                $filter->like('remark_qrcode', __('somsorder.remark_qrcode'));
                 $filter->like('code', __('somsorder.code'));
             });
         });
@@ -241,6 +242,8 @@ class SomsOrderController extends AdminController
         $grid->column('checkout_date_other', __('somsorder.checkout_date_other'))->sortable();
         $grid->column('checkout_location_other', __('somsorder.checkout_location_other'))->sortable();
         $grid->column('remark_location', __('somsorder.remark_location'))->sortable();
+	$grid->column('remark_qrcode', __('somsorder.remark_qrcode'));
+	$grid->column('special_instruction', __('somsorder.special_instruction'));
         $grid->column('total_fee', __('somsorder.total_fee'))->sortable();
         $grid->column('paid_fee', __('somsorder.paid_fee'))->sortable();
         $grid->column('balance', __('somsorder.balance'))->display(function ($balance) {
@@ -362,7 +365,7 @@ class SomsOrderController extends AdminController
                 $form->hasMany('items', function (Form\NestedForm $nestedForm) {
 
                     $nestedForm->select('item_id', __('somsorder.item_id'))->options(function () {
-                        return SomsItem::get()->pluck('display_name', 'id');
+                        return SomsItem::withTrashed()->get()->pluck('display_name', 'id');
                     })->required();
 
                     $nestedForm->number('item_qty', __('somsorder.item_qty'))->min(0)->default(0); //->attribute(['data-id' => 'item_display_price','readonly' => true]);
@@ -619,8 +622,7 @@ class SomsOrderController extends AdminController
             //            $request->session()->flash('alert-class', 'alert-success');
             //            $request->session()->flash('message', '成功發送訂單! 請到閣下郵箱查看!');
             admin_toastr(__('成功'));
-            //            return redirect('/admin/soms/orders');
-            return redirect()->back();
+            return redirect('/admin/soms/orders');
         }
         catch(\Exception $e){
             Log::error('Payment Invoice cannot send with email : '.$order->client->email.' order code : '.$order->code);
@@ -629,8 +631,7 @@ class SomsOrderController extends AdminController
         //        $request->session()->flash('alert-class', 'alert-danger');
         //        $request->session()->flash('message', '發送訂單失敗! 請確認閣下郵箱可正常收發電郵! 若情況持續, 請直接從網站查閱訂單, 謝謝!');
         admin_toastr(__('失败'));
-        //        return redirect('/admin/soms/orders');
-        return redirect()->back();
+        return redirect('/admin/soms/orders');
     }
 
     public function generateWeChatPayQrCode($request, $order, $payment)

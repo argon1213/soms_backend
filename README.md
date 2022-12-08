@@ -101,7 +101,7 @@ git init
 git clone https://github.com/alansklam/soms.git 
 
 # git push
-# Personal access token :- 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
+# Personal access token :- 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
 git add .
 git diff
 git diff --staged
@@ -110,8 +110,10 @@ git commit -m "readme updated"
 git push 
 
 # git pull
-# Personal access token :- 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
+# Personal access token :- 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
 git commit -m "comment"
 git add .
 git pull origin main
+# Force overwritten local copy
+git reset --hard origin/main
 
