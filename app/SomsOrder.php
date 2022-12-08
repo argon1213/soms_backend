@@ -363,8 +363,6 @@ class SomsOrder extends Model
     $newOrder->checkout_location_other = $data['stuff']['address'];
     $newOrder->checkout_date_other = date($data['stuff']['tentativeDate']);
     $newOrder->checkout_time_other = $data['stuff']['tentativeTime'];
-    
-    $newOrder->storage_expired_date = date($data['stuff']['expirationDate']);
 
     $newOrder->special_instruction        = $data['account']['instructions'];
     $newOrder->walkup                     = $data['account']['question1'];
@@ -373,9 +371,6 @@ class SomsOrder extends Model
     $newOrder->total_fee                  = $data['carts']['total'];
     $newOrder->payment_type_id            = $data['carts']['payment_type'];
     $newOrder->storage_month              = $data['carts']['storage_month'];
-
-    $newOrder->product_total_fee          = $data['carts']['stores_total'];
-    // $newOrder->delivery_service_fee       = $data['carts']['materials_total'];
 
     $newOrder->version = 1;
     $newOrder->current_version = 1;

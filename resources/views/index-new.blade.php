@@ -426,7 +426,7 @@
                         <p id="order_storage_period_row" name="order_storage_period_row">
                             <label class="order_storage_period_label">
                                 <input type="radio" value="{{ $storagePeriod->id }}" checked>
-                                <span>@lang('common.oneTimeProduct')</span>
+                                <span>@lang('common.oneTimeProduct') </span>
                             </label>
                         </p>
                     </div>
@@ -438,8 +438,7 @@
                                     <!-- Product Thumb -->
                                     <div class="col-4 col-md-2">
                                     <!-- <a href="#" class="thumb">
-													<img src="{{ asset('storage'.$item->uri) }}" alt="">
-												</a> -->
+					<img src="{{ asset('storage'.$item->uri) }}" alt=""> </a> -->
                                         <img class="thumb" src="{{ asset('storage'.$item->uri) }}" alt="">
                                     </div>
                                     <!-- Product Detail -->
@@ -1040,6 +1039,7 @@
 
     $(function () {
         // Set All Date must be select larger than today
+        // Default date is today plus 2 days - edit by Alan
         $('[type="date"]').prop('min', function () {
             return new Date(new Date().getTime() + (48*60*60*1000) - new Date().getTimezoneOffset() * 60000).toJSON().split('T')[0];
         });

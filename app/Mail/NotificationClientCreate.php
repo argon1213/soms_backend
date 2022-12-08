@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use Log;
 
-class NotificationClientCreate extends Mailable
+class NotificationClientCreate extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
